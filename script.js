@@ -26,7 +26,7 @@ const suavizationPlay = async (enter) => {
   for (let i = start; enter ? i < to : i > to;) {
     i = enter ? (i + increase) : (i - increase)
 
-    audio.volume = Math.max(0.0, Math.min(i, 1.0))
+    audio.volume = Math.max(0.0, Math.min(i, 0.15))
 
     console.log(audio.volume)
     await wait(100)
