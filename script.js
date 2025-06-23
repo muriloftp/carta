@@ -18,20 +18,25 @@ const onPlay = async (data) => {
 const wait = (time) => new Promise((resolve) => setTimeout(resolve, time))
 
 
-const suavizationPlay = async (enter) => {
-  const start = enter ? 0.0 : 1
-  const to = enter ? 1.0 : 0.0
-  const increase = 0.025
+const suavizationPlay = async (enter, duration = 2000) => {
+  const start = enter ? 0.0 : 0.1;
+  const end = enter ? 0.1 : 0.0;
+  const step = 0.005; // suavidade
+  const steps = Math.ceil(Math.abs(end - start) / step);
+  const interval = duration / steps;
 
-  for (let i = start; enter ? i < to : i > to;) {
-    i = enter ? (i + increase) : (i - increase)
+  let volume = start;
 
-    audio.volume = Math.max(0.0, Math.min(i, 0.15))
+  for (let i = 0; i <= steps; i++) {
+    audio.volume = parseFloat(volume.toFixed(3)); // garante precisão
+    console.log(audio.volume);
 
-    console.log(audio.volume)
-    await wait(100)
+    volume += enter ? step : -step;
+    await wait(interval);
   }
-}
+
+  audio.volume = end; // garante o valor final exato
+};
 
 
 $(document).ready(function () {
