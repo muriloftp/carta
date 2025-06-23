@@ -1,7 +1,7 @@
 const musics = [
   {
     name: 'iris.mp3',
-    start: 10
+    start: 9.5
   }
 ]
 const audio = new Audio()
@@ -79,8 +79,8 @@ $(document).ready(function () {
     }, 500)
 
     $('.card').delay(1000).animate({
-      top: '-350px',
-      height: '405px',
+      top: '-420px',
+      height: '470px',
     }, 1500, () => {
       inAnimation = false
     });
@@ -95,7 +95,7 @@ $(document).ready(function () {
 
     $('.card').animate({
       top: '20px',
-      height: '120px'
+      height: '140px'
     }, 1500, async () => {
       // Reset dos efeitos nos corações]
       elementHeader.style.transform = 'rotateX(0deg)';
