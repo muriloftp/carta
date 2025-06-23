@@ -15,7 +15,7 @@ body {
 
 .container {
   position: relative;
-  padding-top: 15rem;
+  padding-top: 20rem;
 }
 
 .valentines {
@@ -66,7 +66,7 @@ body {
   border: 3px solid #003049;
   border-style: dotted;
   width: 250px;
-  height: 370px;
+  height: 436px;
   left: 7px;
   top: 15px;
 }
